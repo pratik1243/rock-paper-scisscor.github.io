@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+
+#board{
+text-align: center;
+padding: 1rem;
+margin: 1rem;
+background-color: rgb(152, 75, 224);
+border-radius: .4rem;
+
+
+}
+
+
+
+p{
+font-family: sans-serif;
+font-size: 1rem;
+color: white;
+}
+
+span{
+font-family: sans-serif;
+font-size: 1.1rem;
+color: white;
+
+}
+
+
+h2{
+font-family: sans-serif;
+font-size: 1.4rem;
+
+}
+
+
+button{
+color: rgb(44, 2, 83);
+font-size: 1rem;
+border-width: 0px;
+outline: none;
+padding: .5rem;
+margin: .4rem;
+border-radius: .2rem;
+cursor: pointer;
+}
+
+button:active{
+
+background-color: rgb(44, 2, 83);
+color: white;
+
+
+}
+
+
+
+
+
+
+
+
+
+.player{
+border: 1px solid white;
+padding: .4rem;
+width: max-content;
+margin: auto;
+border-radius: .2rem;
+}
+
+.computer{
+border: 1px solid white;
+padding: .4rem;
+width: max-content;
+margin: auto;
+border-radius: .2rem;
+}
+
+
+
+
+#result3{
+padding: .5rem;
+border: 1px solid white;
+border-radius: .2rem;
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+    
+
+
+
+
+
+<div id="board">
+
+
+<h2>Rock, Paper, Scissors</h3><br>
+
+<p>Select either rock, paper,or scissors and see if you can beat the computer</p><br>
+
+<p><b style="color: black;"></b>" Rock breaks scissors, scissors cuts paper, paper covers rock."</p><br>
+
+<div class="player">
+
+<span style="color: black;"><b>player:</b>&nbsp<span id="result"></span></span>&nbsp;&nbsp;  
+
+<span style="color: black;"><b>score:</b>&nbsp</span><span id="score1">0</span>&nbsp;&nbsp;
+
+</div><br>
+
+<div class="computer">
+    
+    <span style="color: black;"><b>computer:&nbsp</b><span id="result2"></span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <span style="color: black;">&nbsp<b>score:</b>&nbsp</span><span id="score2">0</span>
+
+</div><br><br>
+
+<button onclick="rock()">rock</button>&nbsp;<button onclick="paper()">paper</button>&nbsp;<button onclick="scissors()">scissors</button><br><br><br><br>
+
+<span id="result3" style="font-size: 1.3rem;"></span><br><br>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let a=0;
+let b=0;
+
+function rock(){
+let result=document.getElementById('result');
+let result2=document.getElementById('result2');
+let result3=document.getElementById('result3');
+let score1=document.getElementById('score1');
+let score2=document.getElementById('score2');
+let random=Math.floor(Math.random()*3);
+result.innerHTML="rock";
+if(random == "2"){
+result2.innerHTML="scissors";
+}
+if(random == "1"){
+result2.innerHTML="paper";
+}
+if(random == "0"){
+result2.innerHTML="rock";
+}
+if(result.innerHTML == result2.innerHTML){
+result3.innerHTML="it is tie!";
+}
+else{
+result3.innerHTML="";
+}
+if(result.innerHTML == "rock" && result2.innerHTML == "paper"){
+result3.innerHTML="computer wins!";
+b=b+1;
+score2.innerHTML=b;
+
+}
+if(result.innerHTML == "rock" && result2.innerHTML == "scissors"){
+    a=a+1;
+score1.innerHTML=a;
+    result3.innerHTML="player wins!";
+}
+
+}
+
+
+
+function paper(){
+let result=document.getElementById('result');
+let result2=document.getElementById('result2');
+let score1=document.getElementById('score1');
+let score2=document.getElementById('score2');
+
+result.innerHTML="paper";
+let random=Math.floor(Math.random()*3);
+if(random == "2"){
+result2.innerHTML="scissors";
+}
+if(random == "1"){
+result2.innerHTML="paper";
+}
+if(random == "0"){
+result2.innerHTML="rock";
+}
+if(result.innerHTML == result2.innerHTML){
+result3.innerHTML="it is tie!";
+}else{
+result3.innerHTML="";
+}
+if(result.innerHTML == "paper" && result2.innerHTML == "scissors"){
+result3.innerHTML="computer wins!";
+b=b+1;
+score2.innerHTML=b;
+}
+if(result.innerHTML == "paper" && result2.innerHTML == "rock"){
+result3.innerHTML="player wins!";
+a=a+1;
+score1.innerHTML=a;
+
+}
+
+}
+
+
+function scissors(){
+let result=document.getElementById('result');
+let result2=document.getElementById('result2');
+let score1=document.getElementById('score1');
+let score2=document.getElementById('score2');
+
+result.innerHTML="scissors";
+let random=Math.floor(Math.random()*3);
+if(random == "2"){
+result2.innerHTML="scissors";
+}
+if(random == "1"){
+result2.innerHTML="paper";
+}
+if(random == "0"){
+result2.innerHTML="rock";
+}
+if(result.innerHTML == result2.innerHTML){
+result3.innerHTML="it is tie!";
+}
+else{
+result3.innerHTML="";
+}
+if(result.innerHTML == "scissors" && result2.innerHTML == "rock"){
+result3.innerHTML="computer wins!";
+b=b+1;
+score2.innerHTML=b;
+}
+if(result.innerHTML == "scissors" && result2.innerHTML == "paper"){
+result3.innerHTML="player wins!";
+a=a+1;
+score1.innerHTML=a;
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
